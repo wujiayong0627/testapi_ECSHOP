@@ -62,6 +62,7 @@ import pytest
 # 2.conftest.py里面的方法在调用时,不需要导入,可以直接使用
 # 3.conftest.py可以有多个,也可以有多个不同的层级
 
+#@pytest.mark.run(order=1) 设置用例执行顺序。
 
 # 四、接口自动化测试框架封装(接口关联的封装)
 #  一般情况下，通过一个关联的yaml文件来实现(yaml_util.py)

@@ -9,6 +9,18 @@ from util.yaml_util import YamlUtil
 
 class TestDemo:
 
+    def setup_class(self):
+        print("开始执行TestDemo用例")
+
+    def teardown_class(self):
+        print("用例TestDemo执行结束")
+
+    def setup(self):
+        print("开始执行用例")
+
+    def teardown(self):
+        print("用例执行结束")
+
     @pytest.mark.parametrize('case_info', YamlUtil().read_testcase_yml('test_login.yml'))
     def test_login(self, case_info):
         """
