@@ -1,0 +1,32 @@
+-
+  api_name: 登录
+  request:
+    method: post
+    url: http://192.168.0.159/ECShop/upload66/user.php
+    headers: {
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36 Edg/103.0.1264.49
+    }
+    params:
+      username: wjy
+      password: 123456
+      act: act_login
+      back_act: http://192.168.0.159/ECShop/upload66/index.php
+      submit:
+  validate:
+    eq: 欢迎您回来！
+-
+  api_name: 登录
+  request:
+    method: post
+    url: http://192.168.0.159/ECShop/upload66/user.php
+    headers: {
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36 Edg/103.0.1264.49
+    }
+    params:
+      username: wjy
+      password: 12345
+      act: act_login
+      back_act: http://192.168.0.159/ECShop/upload66/index.php
+      submit:
+  validate:
+    eq: 用户名或密码错误
