@@ -33,7 +33,12 @@
     session = requests.session()
 
 ####  response类故名思议，它包含了服务器对http请求的响应。每次调用requests去请求之后，均会返回一个response对象，通过调用该对象，可以查看具体的响应信息。 示例如下：
-    属性或属性方法	解释
+    import requests
+
+    r = requests.get('https://api.github.com/events', verify=False)
+    print(r.status_code)
+    print(r.content)
+##### 属性或属性方法	解释
     r.status_code	响应的http状态码，比如404和200
     r.headers	响应头，可单独取出某个字段的值，比如(r.headers)['content-type']
     r.raw	        原始响应，表示urllib3.response.HTTPResponse对象。使用raw时，要求在请求时设置“stream=True”
