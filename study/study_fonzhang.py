@@ -4,19 +4,19 @@
 # argnames:参数名
 # argvalues:参数值（list[]、元组()、字典{}、字典值）
 # 用多少个值，就会运行多少次用例
-# 用法一(基础用法)：
-# class TestApi:
-#
-#     @pytest.mark.parametrize('name', ['张三', '李四', '王五'])
-#     def test_print_name(self, name):
-#         print(name)
-#
-# if __name__ == '__main__':
-#     pytest.main(["TestApi"])
-# 用法二（解包）：
-# @pytest.mark.parametrize('name,age', [['张三', '12'], ['李四', '15'], ['王五', '19']])
-# def test_print_name2(self, name, age):
-#     print(name, age)
+用法一(基础用法)：
+class TestApi:
+
+    @pytest.mark.parametrize('name', ['张三', '李四', '王五'])
+    def test_print_name(self, name):
+        print(name)
+
+if __name__ == '__main__':
+    pytest.main(["TestApi"])
+用法二（解包）：
+@pytest.mark.parametrize('name,age', [['张三', '12'], ['李四', '15'], ['王五', '19']])
+def test_print_name2(self, name, age):
+    print(name, age)
 
 # 二、YAML语法详解（一种数据文件，支持注释、换行、裸字符串）
 # 1、配置文件（配置环境、数据库相关配置、账号信息、日志格式、报告名称）
