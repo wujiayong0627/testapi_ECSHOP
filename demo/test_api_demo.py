@@ -1,33 +1,34 @@
 import json
 import time
-
+import requests
 import pytest
 
 from util.requests_util import RequestsUtil
 from util.yaml_util import YamlUtil
 
 
-class TestDemo:
+class TestApiDemo:
 
     def setup_class(self):
-        print("开始执行TestDemo用例")
+        print("\n开始执行api用例")
 
     def teardown_class(self):
-        print("用例TestDemo执行结束")
+        print("\n用例api执行结束")
 
     def setup(self):
-        print("开始执行用例")
+        print("\n开始执行用例")
 
     def teardown(self):
-        print("用例执行结束")
+        print("\n用例执行结束")
 
     @pytest.mark.parametrize('case_info', YamlUtil().read_testcase_yml('test_login.yml'))
-    def test_login(self, case_info):
+    def test_api_login(self, case_info):
         """
-        登录测试用例
+        登录api测试用例
         :param case_info:数据驱动，提供yaml文件中的数据.
         :return:
         """
+
         method = case_info['request']['method']
         url = case_info['request']['url']
         data = case_info['request']['params']
