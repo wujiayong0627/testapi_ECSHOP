@@ -1,5 +1,7 @@
+import pytest
 import yaml
 
+from selenium import webdriver
 
 class YamlUtil:
     # 读取yml文件
@@ -30,3 +32,25 @@ class YamlUtil:
         with open("./" + yml_name, mode='r', encoding='utf-8') as f:
             value = yaml.load(stream=f, Loader=yaml.FullLoader)
             return value
+
+
+@pytest.mark.parametrize("case_info", YamlUtil().read_user_info('user_Information.yml'))
+@pytest.fixture(scope="function")
+def logon_user(case_info):
+    print("打开火狐浏览器")
+    username = case_info['username']
+    password = case_info['password']
+
+    driver = webdriver.Firefox(executable_path='C:\\Users\\22366\\firefox\\geckodriver')
+    driver.get('http://192.168.0.158/ECShop/upload66/user.php')
+    driver.find_element_by_name("username").send_keys(username)
+    driver.find_element_by_name('password').send_keys(password)
+    driver.find_element_by_name('submit').click()
+    yield driver
+    print("关闭火狐浏览器")
+    driver.close()
+
+if __name__ == '__main__':
+    a = YamlUtil().read_user_info("user_Information.yml")
+    b = logon_user()
+    print(a)

@@ -82,7 +82,11 @@
     class	    模块级 每一个.py文件调用一次。
     module	    块级(包) 每一个.py文件调用一次。
     session	    会话级 每次会话只需要运行一次，会话内所有方法及类，模块都共享这个方法.
-###### params（可选形参列表--数据驱动）：(list类型)提供参数数据，供调用标记方法的函数使用，可与参数ids一起使用，作为每个参数的标识，被Fixture装饰的函数要调用是采用：Request.param
+###### params（可选形参列表--数据驱动）：(list类型、元组、元组加字典、列表加字典)提供参数数据，供调用标记方法的函数使用，可与参数ids一起使用，作为每个参数的标识，被Fixture装饰的函数要调用是采用：Request.param
+    @pytest.fixture(scope="function", autouse=False, params=["wjy", "lhh", "nug"])
+    def test(request):
+        yield request.param
+
 ###### ids：用例标识ID，自定义参数名
 ###### autouse：默认False，若为True，刚每个测试函数都会自动调用该fixture,无需传入fixture函数名。
     autouse=True自动调用，无需传仍何参数，作用范围跟着scope走（谨慎使用）

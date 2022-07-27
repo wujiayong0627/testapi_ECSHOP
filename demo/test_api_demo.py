@@ -21,6 +21,7 @@ class TestApiDemo:
     def teardown(self):
         print("\n用例执行结束")
 
+    @pytest.mark.skipif(True, reason="跳过")
     @pytest.mark.parametrize('case_info', YamlUtil().read_testcase_yml('test_login.yml'))
     def test_api_login(self, case_info):
         """

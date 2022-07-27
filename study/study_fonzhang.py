@@ -4,6 +4,8 @@
 # argnames:参数名
 # argvalues:参数值（list[]、元组()、字典{}、字典值）
 # 用多少个值，就会运行多少次用例
+import pytest
+
 用法一(基础用法)：
 class TestApi:
 
@@ -46,9 +48,6 @@ def test_print_name2(self, name, age):
 # 2、断言多种多样
 # 3、进行多接口场景串联
 # 4、日志监控（日志文件生成、控制台调试日志、邮件日志）
-
-
-
 
 
 
