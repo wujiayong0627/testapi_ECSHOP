@@ -66,3 +66,5 @@ class TestWebDemo:
             assert "订单已提交" in logon_user.page_source
         except AssertionError as e:
             print(e)
+
+
