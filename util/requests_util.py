@@ -11,7 +11,7 @@ class RequestsUtil:
     def __init__(self):
         self.session = requests.Session()
 
-    def send_request(self, method, url, data, **kwargs):
+    def send_request(self, method, url, data, param_type=None, **kwargs):
         """
         发送接口请求
         :param method: get、post、delete、put请求方式
@@ -28,13 +28,21 @@ class RequestsUtil:
             response = self.session.request(method=method, url=url, params=data, **kwargs)
 
         elif method == 'post':
-            response = self.session.request(method=method, url=url, data=data, **kwargs)
-
+            if param_type == "json":
+                response = self.session.request(method=method, url=url, json=data, **kwargs)
+            else:
+                response = self.session.request(method=method, url=url, data=data, **kwargs)
         elif method == 'delete':
-            response = self.session.request(method=method, url=url, data=data, **kwargs)
+            if param_type == "json":
+                response = self.session.request(method=method, url=url, json=data, **kwargs)
+            else:
+                response = self.session.request(method=method, url=url, data=data, **kwargs)
 
         elif method == 'put':
-            response = self.session.request(method=method, url=url, data=data, **kwargs)
+            if param_type == "json":
+                response = self.session.request(method=method, url=url, json=data, **kwargs)
+            else:
+                response = self.session.request(method=method, url=url, data=data, **kwargs)
 
         else:
             raise ValueError

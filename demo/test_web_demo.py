@@ -35,11 +35,12 @@ class TestWebDemo:
         登录界面测试用例
         :return:
         """
+        url = case_info['request']['url']
         username = case_info['request']['params']['username']
         password = case_info['request']['params']['password']
         eq = case_info['validate']['eq']
 
-        open_web.get('http://192.168.0.158/ECShop/upload66/user.php')
+        open_web.get(url)
         open_web.find_element_by_name("username").send_keys(username)
         open_web.find_element_by_name('password').send_keys(password)
         open_web.find_element_by_name('submit').click()
@@ -50,7 +51,7 @@ class TestWebDemo:
         except AssertionError as e:
             print(e)
 
-    @pytest.mark.skipif(True, reason="跳过")
+    # @pytest.mark.skipif(True, reason="跳过")
     def test_place_order(self, logon_user):
         """
         提交订单

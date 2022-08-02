@@ -21,7 +21,7 @@ class TestApiDemo:
     def teardown(self):
         print("\n用例执行结束")
 
-    @pytest.mark.skipif(True, reason="跳过")
+    # @pytest.mark.skipif(True, reason="跳过")
     @pytest.mark.parametrize('case_info', YamlUtil().read_testcase_yml('test_login.yml'))
     def test_api_login(self, case_info):
         """
@@ -33,11 +33,13 @@ class TestApiDemo:
         method = case_info['request']['method']
         url = case_info['request']['url']
         data = case_info['request']['params']
+        param_type = case_info['request']['param_type']
         headers = case_info['request']['headers']
         eq = case_info['validate']['eq']
 
-        req = RequestsUtil().send_request(method=method, url=url, data=data, headers=headers)
+        req = RequestsUtil().send_request(method=method, url=url, data=data, param_type=param_type, headers=headers)
         try:
             assert eq in req.text
+            # RequestsUtil().close_session()
         except AssertionError as e:
             print(e)
