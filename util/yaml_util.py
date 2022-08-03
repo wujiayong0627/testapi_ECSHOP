@@ -27,6 +27,9 @@ class YamlUtil:
 
     # 读取用户的基本信息的yml文件
     def read_user_info(self, yml_name):
-        with open("./" + yml_name, mode='r', encoding='utf-8') as f:
+        with open("./data/" + yml_name, mode='r', encoding='utf-8') as f:
             value = yaml.load(stream=f, Loader=yaml.FullLoader)
             return value
+
+
+YamlUtil = YamlUtil()

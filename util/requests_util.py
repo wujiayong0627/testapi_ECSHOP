@@ -55,3 +55,6 @@ class RequestsUtil:
         :return:null
         """
         self.session.close()
+
+
+RequestsUtil = RequestsUtil()

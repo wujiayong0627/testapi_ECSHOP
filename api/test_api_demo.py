@@ -22,7 +22,7 @@ class TestApiDemo:
         print("\n用例执行结束")
 
     # @pytest.mark.skipif(True, reason="跳过")
-    @pytest.mark.parametrize('case_info', YamlUtil().read_testcase_yml('test_login.yml'))
+    @pytest.mark.parametrize('case_info', YamlUtil.read_testcase_yml('test_login.yml'))
     def test_api_login(self, case_info):
         """
         登录api测试用例
@@ -37,7 +37,7 @@ class TestApiDemo:
         headers = case_info['request']['headers']
         eq = case_info['validate']['eq']
 
-        req = RequestsUtil().send_request(method=method, url=url, data=data, param_type=param_type, headers=headers)
+        req = RequestsUtil.send_request(method=method, url=url, data=data, param_type=param_type, headers=headers)
         try:
             assert eq in req.text
             # RequestsUtil().close_session()

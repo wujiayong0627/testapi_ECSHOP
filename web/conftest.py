@@ -14,7 +14,7 @@ from selenium import webdriver
 from util.yaml_util import YamlUtil
 
 
-@pytest.fixture(scope="function", params=YamlUtil().read_user_info('user_Information.yml'))
+@pytest.fixture(scope="function", params=YamlUtil.read_user_info('user_Information.yml'))
 def logon_user(request):
     print("\n打开火狐浏览器")
 
