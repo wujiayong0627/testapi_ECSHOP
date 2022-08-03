@@ -120,15 +120,153 @@
     
     def test_anthor(test_addfinalizer):
         print("==最新用例==", test_addfinalizer)
-######  addfinalizer 终结函数使用注意事项
-    1、如果 request.addfinalizer() 前面的代码，即setup部分已经抛出异常了，则不会执行 request.addfinalizer() 的teardown内容（和yield相似，应该是最近新版本改成一致了）
+###### &nbsp; &nbsp; &nbsp;  addfinalizer 终结函数使用注意事项
+    1、如果 request.addfinalizer()前面的代码，即setup部分已经抛出异常了，则不会执行 request.addfinalizer() 的teardown内容（和yield相似，应该是最近新版本改成一致了）
     2、可以声明多个终结函数并调用
 
 
-#### conftest.py:@pytest.fixture()一般情况下与conftest.py一起使用。
-    1.conftest.py单独存放@pytest.fixture()的方法.用处是可以存放多个py文件之间的共享前置. 
-    2.conftest.py里面的方法在调用时,不需要导入,可以直接使用 
-    3.conftest.py可以有多个,也可以有多个不同的层级
+#### 4.5 conftest.py
+&nbsp;&nbsp;&nbsp; &nbsp; 可以理解成一个专门存放fixture的配置文件 ,@pytest.fixture()一般情况下与conftest.py一起使用。多个测试用例文件（test_*.py）的所有用例都需要用登录功能来作为前置操作，那就不能把登录功能写到某个用例文件中去了。
+
+注意事项：
+
+    1、pytest会默认读取conftest.py里面的所有fixture
+    2、conftest.py 文件名称是固定的，不能改动
+    3、conftest.py只对同一个package下的所有测试用例生效
+    4、不同目录可以有自己的conftest.py，一个项目中可以有多个conftest.py
+    5、测试用例文件中不需要手动import conftest.py，pytest会自动查找
+#### 4.6 &nbsp;  fixture传参数 request的详细使用
+案例一：传单个参数
+
+    import pytest
+
+    @pytest.fixture()
+    def login(request):
+        name = request.param
+        print(f"== 账号是：{name} ==")
+        return name
+
+    data = ["pyy1", "polo"]
+    ids = [f"login_test_name is:{name}" for name in data]
+
+    @pytest.mark.parametrize("login", data, ids=ids, indirect=True)
+    def test_name(login):
+        print(f" 测试用例的登录账号是：{login} ")
+结果：
+
+    collecting ... collected 2 items
+    
+    10fixture_request.py::test_name[login_test_name is:pyy1] == 账号是：pyy1 ==
+    PASSED          [ 50%] 测试用例的登录账号是：pyy1 
+    
+    10fixture_request.py::test_name[login_test_name is:polo] == 账号是：polo ==
+    PASSED          [100%] 测试用例的登录账号是：polo 
+知识点:
+
+    1、添加  indirect=True  参数是为了把 login 当成一个函数去执行，
+       而不是一个参数，并且将data当做参数传入函数。
+    2、def test_name(login) ，这里的login是获取fixture返回的值
+案例二：多个参数
+
+    @pytest.fixture()
+    def logins(request):
+        param = request.param
+        print(f"账号是：{param['username']}，密码是：{param['pwd']}")
+        return param
+
+    data = [
+        {"username": "name1", "pwd": "pwd1"},
+        {"username": "name2", "pwd": "pwd2"},
+    ]
+
+    @pytest.mark.parametrize("logins", data, indirect=True)
+    def test_name_pwd(logins):
+        print(f"账号是：{logins['username']}，密码是：{logins['pwd']}")
+结果：
+
+    10fixture_request.py::test_name_pwd[logins0] 账号是：name1，密码是：pwd1
+    PASSED                      [ 50%]账号是：name1，密码是：pwd1
+    
+    10fixture_request.py::test_name_pwd[logins1] 账号是：name2，密码是：pwd2
+    PASSED                      [100%]账号是：name2，密码是：pwd2
+知识点：
+
+    如果需要传多个参数，需要通过字典去传。
+
+案例三：多个fixture（只加一个装饰器）
+    
+    # 多个fixture
+    @pytest.fixture(scope="module")
+    def input_user(request):
+        user = request.param
+        print("登录账户：%s" % user)
+        return user
+    
+    @pytest.fixture(scope="module")
+    def input_psw(request):
+        psw = request.param
+        print("登录密码：%s" % psw)
+        return psw
+
+    data = [
+        ("name1", "pwd1"),
+        ("name2", "pwd2")
+    ]
+    
+    @pytest.mark.parametrize("input_user,input_psw", data, indirect=True)
+    def test_more_fixture(input_user, input_psw):
+        print("fixture返回的内容:", input_user, input_psw)
+
+执行结果
+
+    10fixture_request.py::test_more_fixture[name1-pwd1] 登录账户：name1
+    登录密码：pwd1
+    PASSED               [ 50%]fixture返回的内容: name1 pwd1
+    
+    10fixture_request.py::test_more_fixture[name2-pwd2] 登录账户：name2
+    登录密码：pwd2
+    PASSED               [100%]fixture返回的内容: name2 pwd2
+     
+
+案例四：多个fixture（叠加装饰器）
+  
+    @pytest.fixture(scope="function")
+    def input_user(request):
+        user = request.param
+        print("登录账户：%s" % user)
+        return user
+
+    @pytest.fixture(scope="function")
+    def input_psw(request):
+        psw = request.param
+        print("登录密码：%s" % psw)
+        return psw
+    
+    name = ["name1", "name2"]
+    pwd = ["pwd1", "pwd2"]
+    
+    @pytest.mark.parametrize("input_user", name, indirect=True)
+    @pytest.mark.parametrize("input_psw", pwd, indirect=True)
+    def test_more_fixture(input_user, input_psw):
+        print("fixture返回的内容:", input_user, input_psw)
+
+执行结果
+
+    10fixture_request.py::test_more_fixture[pwd1-name1] 登录账户：name1
+    登录密码：pwd1
+    PASSED               [ 25%]fixture返回的内容: name1 pwd1
+    
+    10fixture_request.py::test_more_fixture[pwd1-name2] 登录账户：name2
+    登录密码：pwd1
+    PASSED               [ 50%]fixture返回的内容: name2 pwd1
+    
+    10fixture_request.py::test_more_fixture[pwd2-name1] 登录账户：name1
+    登录密码：pwd2
+    PASSED               [ 75%]fixture返回的内容: name1 pwd2
+    
+    10fixture_request.py::test_more_fixture[pwd2-name2] 登录账户：name2
+    登录密码：pwd2
+    PASSED               [100%]fixture返回的内容: name2 pwd2
 
 #### 2、设置用例执行顺序
 ##### @pytest.mark.run(order=)
@@ -163,12 +301,12 @@
     argnames: 参数名
     argvalues:参数值（list[]、元组()、字典{}、字典值）
 ##### 用法：   
-###### 用法一(基础用法)：
+###### 用法一&nbsp;(基础用法)：
         @pytest.mark.parametrize('name', ['张三', '李四', '王五'])
         def test_print_name(self, name):
             print(name)
 
-###### 用法二（解包）：
+###### 用法二&nbsp;（解包）：
     @pytest.mark.parametrize('name,age', [['张三', '12'], ['李四', '15'], ['王五', '19']])
     def test_print_name2(self, name, age):
         print(name, age)
@@ -191,6 +329,7 @@
 
 
 
+###  五、pytest-rerunfailures（失败用例重跑插件）
 
 
 
@@ -198,15 +337,21 @@
 
 
 
+[//]: # ()
+[//]: # (# 四、接口自动化测试框架封装&#40;接口关联的封装&#41;)
 
+[//]: # (#  一般情况下，通过一个关联的yaml文件来实现&#40;yaml_util.py&#41;)
 
-# 四、接口自动化测试框架封装(接口关联的封装)
-#  一般情况下，通过一个关联的yaml文件来实现(yaml_util.py)
+[//]: # ()
+[//]: # (# 五、pytest接口测试的断言)
 
-# 五、pytest接口测试的断言
-# assert关键字
+[//]: # (# assert关键字)
 
-# 六、pytest结合allur-pytest生成allure测试报告
-# 1、生成临时的json文件报告（直接在pytest.ini 中添加参数 --alluredir ./temp）
-# 2、通过临时的json文件生成allure报告（os.system(allure generate temp -o temp/reports --clean)）
-# 3、allure报告的定制
+[//]: # ()
+[//]: # (# 六、pytest结合allur-pytest生成allure测试报告)
+
+[//]: # (# 1、生成临时的json文件报告（直接在pytest.ini 中添加参数 --alluredir ./temp）)
+
+[//]: # (# 2、通过临时的json文件生成allure报告（os.system&#40;allure generate temp -o temp/reports --clean&#41;）)
+
+[//]: # (# 3、allure报告的定制)
