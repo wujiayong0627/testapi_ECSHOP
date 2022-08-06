@@ -6,7 +6,6 @@
 @Ver : 0.0.0
 """
 import time
-
 import pytest
 
 from selenium import webdriver
@@ -29,7 +28,7 @@ class TestWebDemo:
         print("\n用例执行结束")
 
     @pytest.mark.skipif(True, reason="跳过")
-    @pytest.mark.parametrize('case_info', YamlUtil().read_testcase_yml('test_login.yml'))
+    @pytest.mark.parametrize('case_info', YamlUtil.read_testcase_yml('test_login.yml'))
     def test_login(self, case_info, open_web):
         """
         登录界面测试用例
@@ -50,6 +49,9 @@ class TestWebDemo:
             assert eq in open_web.page_source
         except AssertionError as e:
             print(e)
+        finally:
+            print("\n关闭火狐浏览器")
+            driver.close()
 
     # @pytest.mark.skipif(True, reason="跳过")
     def test_place_order(self, logon_user):
@@ -67,5 +69,8 @@ class TestWebDemo:
             assert "订单已提交" in logon_user.page_source
         except AssertionError as e:
             print(e)
+        finally:
+            print("\n关闭火狐浏览器")
+            driver.close()
 
 
