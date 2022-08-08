@@ -50,7 +50,4 @@ logger = Logger().logger
 
 if __name__ == '__main__':
     logger = Logger().logger
-    logger.debug('我打印debug日志')
-    logger.info('我打印info日志')
-    logger.warning('我打印warning日志')
-    logger.error('我打印error日志')
+
