@@ -32,4 +32,4 @@ class YamlUtil:
             return value
 
 
-YamlUtil = YamlUtil()
+yml = YamlUtil()

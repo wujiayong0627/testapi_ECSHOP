@@ -2,11 +2,9 @@ import time
 
 import pytest
 
-from selenium import webdriver
-
-from util.yaml_util import YamlUtil
+from util.yaml_util import yml
 
 
 @pytest.fixture(scope="session", autouse=True)
 def clear_yaml():
-    YamlUtil().clear_extract_yml()
+    yml.clear_extract_yml()

@@ -57,4 +57,4 @@ class RequestsUtil:
         self.session.close()
 
 
-RequestsUtil = RequestsUtil()
+requesting = RequestsUtil()
