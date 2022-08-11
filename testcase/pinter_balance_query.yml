@@ -1,0 +1,18 @@
+- name: 余额查询（token）
+  request:
+    method: get
+    url: /pinter/bank/api/query2
+    headers: {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36 Edg/103.0.1264.49",
+      "testfan-token": "${get_extract_data(data)}"
+    }
+    params: {
+      "userName": "admin"
+    }
+    data: { }
+    json: { }
+    files: { }
+  extract:
+  validate:
+    - equals: { 'status_code': '200',"code": "0" }
+    - contains: data

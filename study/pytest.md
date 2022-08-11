@@ -317,25 +317,46 @@
     condition：预期失败的条件，必传参数
     reason：   失败的原因，必传参数
 
-###  四、断言
+### 四、断言
+
 #### 1、常用断言
-######  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pytest 里面断言实际上就是 python 里面的 assert 断言方法，常用的有以下几种：
+
+###### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pytest 里面断言实际上就是 python 里面的 assert 断言方法，常用的有以下几种：
+
     assert xx ：判断 xx 为真
     assert not xx ：判断 xx 不为真
     assert a in b ：判断 b 包含 a 
     assert a == b ：判断 a 等于 b
     assert a != b ：判断 a 不等于 b
- #### 1、异常断言
 
+#### 2、异常断言
 
+###### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 可以使用 pytest.raises 作为上下文管理器，当抛出异常时可以获取到对应的异常实例。
 
-###  五、pytest-rerunfailures（失败用例重跑插件）
+    # 断言异常
+    def test_zero_division():
+        with pytest.raises(ZeroDivisionError):
+            1 / 0
 
+    断言场景：断言它抛的异常是不是预期想要的
+    代码执行：1/0
+    预期结果：抛的异常是ZeroDivisionError: division by zero
+    如何断言：通常是断言异常的 type 和 value 值了
+    具体方式：这里 1/0 的异常类型是 ZeroDivisionError，异常的 value 值是 divisionby zero
+    
 
+    
+    # 详细断言异常
+    def test_zero_division_long():
+        with pytest.raises(ZeroDivisionError) as excinfo:
+            1 / 0
 
+    # 断言异常类型 type
+    assert excinfo.type == ZeroDivisionError
+    # 断言异常 value 值
+    assert "division by zero" in str(excinfo.value)
 
-
-
+### 五、pytest-rerunfailures（失败用例重跑插件）
 
 [//]: # ()
 [//]: # (# 四、接口自动化测试框架封装&#40;接口关联的封装&#41;)

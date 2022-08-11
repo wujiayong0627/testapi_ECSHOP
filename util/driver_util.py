@@ -19,17 +19,20 @@ class browser:
     def __init__(self):
         self.options = webdriver.FirefoxOptions()
         # 设置浏览器编码格式
-        self.options.add_argument('lang=zh_CN.UTF-8')
+        # self.options.add_argument('lang=zh_CN.UTF-8')
         # 设置浏览器禁止加载图片
         self.options.set_preference('permissions.default.image', 2)
 
         # firefox无头模式
-        self.options.add_argument('--headless')
-        self.options.add_argument('--disable-gpu')
-        self.options.add_argument('window-size=1200x600')
+        # self.options.add_argument('--headless')
+        # self.options.add_argument('--disable-gpu')
+        # self.options.add_argument('window-size=1200x600')
 
-        self.web_driver = webdriver.Firefox(executable_path=firefoxDriver_path, options=self.options,
-                                            service_log_path=log_path + "\\geckodriver.log")
+    def web_driver(self):
+        web_driver = webdriver.Firefox(executable_path=firefoxDriver_path, options=self.options,
+                                       service_log_path=log_path + "\\geckodriver.log")
+        return web_driver
 
 
-driver = browser().web_driver
+if __name__ == '__main__':
+    driver = browser().web_driver()

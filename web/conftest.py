@@ -5,39 +5,37 @@
 @Desc: 
 @Ver : 0.0.0
 """
-import time
 
 import pytest
 
-from selenium import webdriver
+from util.driver_util import browser
+from util.log_utli import logger
+from util.yaml_util import YamlUtil
 
-from util.yaml_util import yml
 
-
-@pytest.fixture(scope="function", params=yml.read_user_info('user_Information.yml'))
+@pytest.fixture(scope="function", params=YamlUtil().read_users())
 def logon_user(request):
-    print("\n打开火狐浏览器")
-
+    driver = browser().web_driver()
     url = request.param['url']
     username = request.param['username']
     password = request.param['password']
-    executable_path = request.param['executable_path']
 
-    driver = webdriver.Firefox(executable_path=executable_path)
+    logger.info("登录地址:{}".format(url))
+    logger.info("登录用户:{}".format(username))
+    logger.info("登录密码:{}".format(password))
+
+    logger.info("浏览器打开成功")
+
     driver.get(url)
     driver.find_element_by_name("username").send_keys(username)
     driver.find_element_by_name('password').send_keys(password)
     driver.find_element_by_name('submit').click()
     driver.find_element_by_class_name("cur").click()
+    logger.info("用户登录成功")
     yield driver
-    print("\n关闭火狐浏览器")
-    driver.close()
 
 
 @pytest.fixture(scope='function')
 def open_web():
-    print("\n 打开火狐浏览器")
-    driver = webdriver.Firefox(executable_path='C:\\Users\\22366\\firefox\\geckodriver')
-    yield driver
-    print("\n 关闭火狐浏览器")
-    driver.close()
+    logger.info("浏览器打开成功")
+    yield browser().web_driver()

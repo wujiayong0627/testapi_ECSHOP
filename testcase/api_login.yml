@@ -1,0 +1,22 @@
+- name: 测试登录失败(用户名错误)
+  request:
+    method: post
+    url: /user.php
+    headers: {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36 Edg/103.0.1264.49"
+    }
+    params: { }
+    data: {
+      'username': 'wjyh',
+      'password': '123456',
+      'act': 'act_login',
+      'back_act': 'index.php',
+      'submit':
+    }
+    json: { }
+    files:
+  extract:
+  validate:
+    -equals:
+    -contains:
+    eq: 用户名或密码错误
