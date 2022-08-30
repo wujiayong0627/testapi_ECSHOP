@@ -1,0 +1,19 @@
+#首页界面定位元素
+home_login_button: ("xpath","//img[contains(@src,'log.gif')]")
+home_register_button: ("xpath","//img[contains(@src,'reg.gif')]")
+home_commodity: ("xpath",'//*[@id="show_best_area"]/div[1]/a/img')   #写入你所需要下单的商品的定位器
+
+#登录界面定位元素
+login_username: ("name", "username")
+login_password: ("name", "password")
+login_button: ("name", "submit")
+
+#商品品详情页面
+add_cart: ("xpath","//img[contains(@src,'cat.gif')]")
+
+#购物车页面
+settlement_center_button: ("xpath","//img[@alt='checkout']")
+
+#订单详情界面
+placeorder_button: ("xpath","//input[@type='image']")
+paymentMethod: ("xpath","//*[@name="payment"][1]") #选择付款方式，根据界面显示选择更改数字

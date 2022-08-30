@@ -1,0 +1,6 @@
+-
+  name: 测试登录成功
+  username: wjy
+  password: 123456
+  validate:
+    - contains: 登录成功

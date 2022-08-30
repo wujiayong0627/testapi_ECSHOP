@@ -1,0 +1,23 @@
+-
+  name: $ddt{name}
+  parameterize:
+    name-msg_type-msg_content-msg_title-message_img-filename-Content_Type-contains: test_Ecshop_api_userComments.csv
+  request:
+    method: post
+    url: /user.php
+    headers:
+      User-Agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36 Edg/103.0.1264.49"
+    data:
+      msg_type: $ddt{msg_type}
+      act: "act_add_message"
+      msg_content: $ddt{msg_content}
+      msg_title: $ddt{msg_title}
+    files:
+      Content-Disposition: "form-data"
+      message_img: $ddt{message_img}
+      filename: $ddt{filename}
+      Content-Type: $ddt{Content_Type}
+  extract:
+  validate:
+    - equals: { 'status_code': '200'}
+    - contains: $ddt{contains}

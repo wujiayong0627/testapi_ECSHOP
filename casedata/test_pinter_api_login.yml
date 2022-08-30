@@ -1,0 +1,17 @@
+-
+  name: 测试登录成功
+  parameterize:
+    name-userName-password-code-contains: test_pinter_api_login.csv
+  request:
+    method: post
+    url: /pinter/bank/api/login2
+    headers:
+      User-Agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36 Edg/103.0.1264.49"
+    data:
+      userName: "admin"
+      password: "1234"
+  extract:
+    token: data
+  validate:
+    - equals: { 'status_code': '200',"code": "0" }
+    - contains: success

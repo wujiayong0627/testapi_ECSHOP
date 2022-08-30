@@ -1,0 +1,19 @@
+-
+  name: $ddt{name}
+  parameterize:
+    name-username-password-contains: test_Ecshop_api_login.csv
+  request:
+    method: post
+    url: /user.php
+    headers:
+      User-Agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36 Edg/103.0.1264.49"
+    data:
+      username: $ddt{username}
+      password: $ddt{password}
+      act: 'act_login'
+      back_act: 'index.php'
+      submit:
+  extract:
+  validate:
+    - equals:
+    - contains: $ddt{contains}

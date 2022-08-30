@@ -1,0 +1,157 @@
+[2022-08-25 15:45:13,875][requestsUtil.py 72][INFO]: 用例名称:测试登录成功
+[2022-08-25 15:45:13,875][requestsUtil.py 110][INFO]: 接口地址:http://127.0.0.1:8080/pinter/bank/api/login2
+[2022-08-25 15:45:13,875][requestsUtil.py 111][INFO]: 请求方法:post
+[2022-08-25 15:45:13,875][requestsUtil.py 116][INFO]: headers:{'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36 Edg/103.0.1264.49'}
+[2022-08-25 15:45:13,875][requestsUtil.py 116][INFO]: data:{'userName': 'admin', 'password': '1234'}
+[2022-08-25 15:45:13,969][assertUtil.py 63][INFO]: 断言成功:返回的状态码等于200
+[2022-08-25 15:45:13,969][assertUtil.py 78][INFO]: 断言成功:code等于0
+[2022-08-25 15:45:13,969][assertUtil.py 100][INFO]: 断言成功:返回的结果中包含success
+[2022-08-25 15:45:13,969][assertUtil.py 41][INFO]: 断言成功:全部断言通过
+[2022-08-25 15:45:13,969][assertUtil.py 42][INFO]: 用例执行:成功
+[2022-08-25 15:45:13,969][requestsUtil.py 72][INFO]: 用例名称:余额查询（token）
+[2022-08-25 15:45:13,969][requestsUtil.py 110][INFO]: 接口地址:http://127.0.0.1:8080/pinter/bank/api/query2
+[2022-08-25 15:45:13,969][requestsUtil.py 111][INFO]: 请求方法:get
+[2022-08-25 15:45:13,969][requestsUtil.py 116][INFO]: headers:{'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36 Edg/103.0.1264.49', 'testfan-token': '${get_extract_data(token)}'}
+[2022-08-25 15:45:13,969][requestsUtil.py 55][INFO]: token:60ed0babff224b5b87825f9ce789ab40
+[2022-08-25 15:45:13,969][requestsUtil.py 116][INFO]: params:{'userName': 'admin'}
+[2022-08-25 15:45:13,984][assertUtil.py 100][INFO]: 断言成功:返回的结果中包含success
+[2022-08-25 15:45:13,984][assertUtil.py 41][INFO]: 断言成功:全部断言通过
+[2022-08-25 15:45:13,984][assertUtil.py 42][INFO]: 用例执行:成功
+[2022-08-25 16:14:46,522][requestsUtil.py 72][INFO]: 用例名称:测试登录成功
+[2022-08-25 16:14:46,522][requestsUtil.py 110][INFO]: 接口地址:http://127.0.0.1:8080/pinter/bank/api/login2
+[2022-08-25 16:14:46,522][requestsUtil.py 111][INFO]: 请求方法:post
+[2022-08-25 16:14:46,522][requestsUtil.py 116][INFO]: headers:{'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36 Edg/103.0.1264.49'}
+[2022-08-25 16:14:46,522][requestsUtil.py 116][INFO]: data:{'userName': 'admin', 'password': '1234'}
+[2022-08-25 16:14:46,616][assertUtil.py 63][INFO]: 断言成功:返回的状态码等于200
+[2022-08-25 16:14:46,616][assertUtil.py 78][INFO]: 断言成功:code等于0
+[2022-08-25 16:14:46,616][assertUtil.py 100][INFO]: 断言成功:返回的结果中包含success
+[2022-08-25 16:14:46,616][assertUtil.py 41][INFO]: 断言成功:全部断言通过
+[2022-08-25 16:14:46,616][assertUtil.py 42][INFO]: 用例执行:成功
+[2022-08-25 16:14:46,632][requestsUtil.py 72][INFO]: 用例名称:余额查询（token）
+[2022-08-25 16:14:46,632][requestsUtil.py 110][INFO]: 接口地址:http://127.0.0.1:8080/pinter/bank/api/query2
+[2022-08-25 16:14:46,632][requestsUtil.py 111][INFO]: 请求方法:get
+[2022-08-25 16:14:46,632][requestsUtil.py 116][INFO]: headers:{'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36 Edg/103.0.1264.49', 'testfan-token': '${get_extract_data(token)}'}
+[2022-08-25 16:14:46,632][requestsUtil.py 55][INFO]: token:d1bc65d6be2444e4bf168b560d1a2aa3
+[2022-08-25 16:14:46,632][requestsUtil.py 116][INFO]: params:{'userName': 'admin'}
+[2022-08-25 16:14:46,632][assertUtil.py 100][INFO]: 断言成功:返回的结果中包含success
+[2022-08-25 16:14:46,632][assertUtil.py 41][INFO]: 断言成功:全部断言通过
+[2022-08-25 16:14:46,632][assertUtil.py 42][INFO]: 用例执行:成功
+[2022-08-25 16:17:04,385][requestsUtil.py 72][INFO]: 用例名称:测试登录成功
+[2022-08-25 16:17:04,385][requestsUtil.py 110][INFO]: 接口地址:http://127.0.0.1:8080/pinter/bank/api/login2
+[2022-08-25 16:17:04,385][requestsUtil.py 111][INFO]: 请求方法:post
+[2022-08-25 16:17:04,385][requestsUtil.py 116][INFO]: headers:{'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36 Edg/103.0.1264.49'}
+[2022-08-25 16:17:04,385][requestsUtil.py 116][INFO]: data:{'userName': 'admin', 'password': '1234'}
+[2022-08-25 16:17:04,401][assertUtil.py 63][INFO]: 断言成功:返回的状态码等于200
+[2022-08-25 16:17:04,401][assertUtil.py 78][INFO]: 断言成功:code等于0
+[2022-08-25 16:17:04,401][assertUtil.py 100][INFO]: 断言成功:返回的结果中包含success
+[2022-08-25 16:17:04,401][assertUtil.py 41][INFO]: 断言成功:全部断言通过
+[2022-08-25 16:17:04,401][assertUtil.py 42][INFO]: 用例执行:成功
+[2022-08-25 16:17:04,401][requestsUtil.py 72][INFO]: 用例名称:余额查询（token）
+[2022-08-25 16:17:04,401][requestsUtil.py 110][INFO]: 接口地址:http://127.0.0.1:8080/pinter/bank/api/query2
+[2022-08-25 16:17:04,401][requestsUtil.py 111][INFO]: 请求方法:get
+[2022-08-25 16:17:04,401][requestsUtil.py 116][INFO]: headers:{'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36 Edg/103.0.1264.49', 'testfan-token': '${get_extract_data(token)}'}
+[2022-08-25 16:17:04,401][requestsUtil.py 55][INFO]: token:bcf3c09b9d614657977aad0d5676b9af
+[2022-08-25 16:17:04,401][requestsUtil.py 116][INFO]: params:{'userName': 'admin'}
+[2022-08-25 16:17:04,416][assertUtil.py 100][INFO]: 断言成功:返回的结果中包含success
+[2022-08-25 16:17:04,416][assertUtil.py 41][INFO]: 断言成功:全部断言通过
+[2022-08-25 16:17:04,416][assertUtil.py 42][INFO]: 用例执行:成功
+[2022-08-25 16:22:44,930][requestsUtil.py 72][INFO]: 用例名称:测试登录成功
+[2022-08-25 16:22:44,930][requestsUtil.py 110][INFO]: 接口地址:http://127.0.0.1:8080/pinter/bank/api/login2
+[2022-08-25 16:22:44,930][requestsUtil.py 111][INFO]: 请求方法:post
+[2022-08-25 16:22:44,930][requestsUtil.py 116][INFO]: headers:{'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36 Edg/103.0.1264.49'}
+[2022-08-25 16:22:44,930][requestsUtil.py 116][INFO]: data:{'userName': 'admin', 'password': '1234'}
+[2022-08-25 16:22:44,945][assertUtil.py 63][INFO]: 断言成功:返回的状态码等于200
+[2022-08-25 16:22:44,945][assertUtil.py 78][INFO]: 断言成功:code等于0
+[2022-08-25 16:22:44,945][assertUtil.py 100][INFO]: 断言成功:返回的结果中包含success
+[2022-08-25 16:22:44,945][assertUtil.py 41][INFO]: 断言成功:全部断言通过
+[2022-08-25 16:22:44,945][assertUtil.py 42][INFO]: 用例执行:成功
+[2022-08-25 16:22:44,945][requestsUtil.py 72][INFO]: 用例名称:余额查询（token）
+[2022-08-25 16:22:44,945][requestsUtil.py 110][INFO]: 接口地址:http://127.0.0.1:8080/pinter/bank/api/query2
+[2022-08-25 16:22:44,945][requestsUtil.py 111][INFO]: 请求方法:get
+[2022-08-25 16:22:44,945][requestsUtil.py 116][INFO]: headers:{'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36 Edg/103.0.1264.49', 'testfan-token': '${get_extract_data(token)}'}
+[2022-08-25 16:22:44,945][requestsUtil.py 55][INFO]: token:de70be1952c649898a306d6bbec2bb79
+[2022-08-25 16:22:44,945][requestsUtil.py 116][INFO]: params:{'userName': 'admin'}
+[2022-08-25 16:22:44,961][assertUtil.py 100][INFO]: 断言成功:返回的结果中包含success
+[2022-08-25 16:22:44,961][assertUtil.py 41][INFO]: 断言成功:全部断言通过
+[2022-08-25 16:22:44,961][assertUtil.py 42][INFO]: 用例执行:成功
+[2022-08-25 16:25:58,399][requestsUtil.py 72][INFO]: 用例名称:测试登录成功
+[2022-08-25 16:25:58,399][requestsUtil.py 110][INFO]: 接口地址:http://127.0.0.1:8080/pinter/bank/api/login2
+[2022-08-25 16:25:58,399][requestsUtil.py 111][INFO]: 请求方法:post
+[2022-08-25 16:25:58,399][requestsUtil.py 116][INFO]: headers:{'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36 Edg/103.0.1264.49'}
+[2022-08-25 16:25:58,399][requestsUtil.py 116][INFO]: data:{'userName': 'admin', 'password': '1234'}
+[2022-08-25 16:25:58,477][assertUtil.py 63][INFO]: 断言成功:返回的状态码等于200
+[2022-08-25 16:25:58,477][assertUtil.py 78][INFO]: 断言成功:code等于0
+[2022-08-25 16:25:58,477][assertUtil.py 100][INFO]: 断言成功:返回的结果中包含success
+[2022-08-25 16:25:58,477][assertUtil.py 41][INFO]: 断言成功:全部断言通过
+[2022-08-25 16:25:58,477][assertUtil.py 42][INFO]: 用例执行:成功
+[2022-08-25 16:25:58,477][requestsUtil.py 72][INFO]: 用例名称:余额查询（token）
+[2022-08-25 16:25:58,477][requestsUtil.py 110][INFO]: 接口地址:http://127.0.0.1:8080/pinter/bank/api/query2
+[2022-08-25 16:25:58,477][requestsUtil.py 111][INFO]: 请求方法:get
+[2022-08-25 16:25:58,477][requestsUtil.py 116][INFO]: headers:{'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36 Edg/103.0.1264.49', 'testfan-token': '${get_extract_data(token)}'}
+[2022-08-25 16:25:58,477][requestsUtil.py 55][INFO]: token:972ffe2a34e9475f87c0402111e24e4e
+[2022-08-25 16:25:58,477][requestsUtil.py 116][INFO]: params:{'userName': 'admin'}
+[2022-08-25 16:25:58,493][assertUtil.py 100][INFO]: 断言成功:返回的结果中包含success
+[2022-08-25 16:25:58,493][assertUtil.py 41][INFO]: 断言成功:全部断言通过
+[2022-08-25 16:25:58,493][assertUtil.py 42][INFO]: 用例执行:成功
+[2022-08-25 16:26:01,624][requestsUtil.py 72][INFO]: 用例名称:测试登录成功
+[2022-08-25 16:26:01,627][requestsUtil.py 110][INFO]: 接口地址:http://127.0.0.1:8080/pinter/bank/api/login2
+[2022-08-25 16:26:01,627][requestsUtil.py 111][INFO]: 请求方法:post
+[2022-08-25 16:26:01,627][requestsUtil.py 116][INFO]: headers:{'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36 Edg/103.0.1264.49'}
+[2022-08-25 16:26:01,627][requestsUtil.py 116][INFO]: data:{'userName': 'admin', 'password': '1234'}
+[2022-08-25 16:26:01,641][assertUtil.py 63][INFO]: 断言成功:返回的状态码等于200
+[2022-08-25 16:26:01,643][assertUtil.py 78][INFO]: 断言成功:code等于0
+[2022-08-25 16:26:01,643][assertUtil.py 100][INFO]: 断言成功:返回的结果中包含success
+[2022-08-25 16:26:01,644][assertUtil.py 41][INFO]: 断言成功:全部断言通过
+[2022-08-25 16:26:01,644][assertUtil.py 42][INFO]: 用例执行:成功
+[2022-08-25 16:26:01,646][requestsUtil.py 72][INFO]: 用例名称:余额查询（token）
+[2022-08-25 16:26:01,647][requestsUtil.py 110][INFO]: 接口地址:http://127.0.0.1:8080/pinter/bank/api/query2
+[2022-08-25 16:26:01,647][requestsUtil.py 111][INFO]: 请求方法:get
+[2022-08-25 16:26:01,647][requestsUtil.py 116][INFO]: headers:{'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36 Edg/103.0.1264.49', 'testfan-token': '${get_extract_data(token)}'}
+[2022-08-25 16:26:01,648][requestsUtil.py 55][INFO]: token:ad8d605f4f2e4422b4321abcc52a67ec
+[2022-08-25 16:26:01,648][requestsUtil.py 116][INFO]: params:{'userName': 'admin'}
+[2022-08-25 16:26:01,658][assertUtil.py 100][INFO]: 断言成功:返回的结果中包含success
+[2022-08-25 16:26:01,658][assertUtil.py 41][INFO]: 断言成功:全部断言通过
+[2022-08-25 16:26:01,658][assertUtil.py 42][INFO]: 用例执行:成功
+[2022-08-25 16:28:01,528][requestsUtil.py 72][INFO]: 用例名称:测试登录成功
+[2022-08-25 16:28:01,528][requestsUtil.py 110][INFO]: 接口地址:http://127.0.0.1:8080/pinter/bank/api/login2
+[2022-08-25 16:28:01,528][requestsUtil.py 111][INFO]: 请求方法:post
+[2022-08-25 16:28:01,528][requestsUtil.py 116][INFO]: headers:{'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36 Edg/103.0.1264.49'}
+[2022-08-25 16:28:01,528][requestsUtil.py 116][INFO]: data:{'userName': 'admin', 'password': '1234'}
+[2022-08-25 16:28:01,543][assertUtil.py 63][INFO]: 断言成功:返回的状态码等于200
+[2022-08-25 16:28:01,543][assertUtil.py 78][INFO]: 断言成功:code等于0
+[2022-08-25 16:28:01,543][assertUtil.py 100][INFO]: 断言成功:返回的结果中包含success
+[2022-08-25 16:28:01,543][assertUtil.py 41][INFO]: 断言成功:全部断言通过
+[2022-08-25 16:28:01,543][assertUtil.py 42][INFO]: 用例执行:成功
+[2022-08-25 16:28:01,543][requestsUtil.py 72][INFO]: 用例名称:余额查询（token）
+[2022-08-25 16:28:01,543][requestsUtil.py 110][INFO]: 接口地址:http://127.0.0.1:8080/pinter/bank/api/query2
+[2022-08-25 16:28:01,543][requestsUtil.py 111][INFO]: 请求方法:get
+[2022-08-25 16:28:01,543][requestsUtil.py 116][INFO]: headers:{'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36 Edg/103.0.1264.49', 'testfan-token': '${get_extract_data(token)}'}
+[2022-08-25 16:28:01,543][requestsUtil.py 55][INFO]: token:4c073a1b824f4d38bceb6e012ed8504c
+[2022-08-25 16:28:01,543][requestsUtil.py 116][INFO]: params:{'userName': 'admin'}
+[2022-08-25 16:28:01,543][assertUtil.py 100][INFO]: 断言成功:返回的结果中包含success
+[2022-08-25 16:28:01,543][assertUtil.py 41][INFO]: 断言成功:全部断言通过
+[2022-08-25 16:28:01,543][assertUtil.py 42][INFO]: 用例执行:成功
+[2022-08-25 16:30:01,495][requestsUtil.py 72][INFO]: 用例名称:测试登录成功
+[2022-08-25 16:30:01,495][requestsUtil.py 110][INFO]: 接口地址:http://127.0.0.1:8080/pinter/bank/api/login2
+[2022-08-25 16:30:01,495][requestsUtil.py 111][INFO]: 请求方法:post
+[2022-08-25 16:30:01,495][requestsUtil.py 116][INFO]: headers:{'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36 Edg/103.0.1264.49'}
+[2022-08-25 16:30:01,495][requestsUtil.py 116][INFO]: data:{'userName': 'admin', 'password': '1234'}
+[2022-08-25 16:30:01,495][assertUtil.py 63][INFO]: 断言成功:返回的状态码等于200
+[2022-08-25 16:30:01,495][assertUtil.py 78][INFO]: 断言成功:code等于0
+[2022-08-25 16:30:01,495][assertUtil.py 100][INFO]: 断言成功:返回的结果中包含success
+[2022-08-25 16:30:01,495][assertUtil.py 41][INFO]: 断言成功:全部断言通过
+[2022-08-25 16:30:01,495][assertUtil.py 42][INFO]: 用例执行:成功
+[2022-08-25 16:30:01,495][requestsUtil.py 72][INFO]: 用例名称:余额查询（token）
+[2022-08-25 16:30:01,495][requestsUtil.py 110][INFO]: 接口地址:http://127.0.0.1:8080/pinter/bank/api/query2
+[2022-08-25 16:30:01,495][requestsUtil.py 111][INFO]: 请求方法:get
+[2022-08-25 16:30:01,495][requestsUtil.py 116][INFO]: headers:{'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36 Edg/103.0.1264.49', 'testfan-token': '${get_extract_data(token)}'}
+[2022-08-25 16:30:01,495][requestsUtil.py 55][INFO]: token:fd9d491a444f467586d4efe53ad16983
+[2022-08-25 16:30:01,495][requestsUtil.py 116][INFO]: params:{'userName': 'admin'}
+[2022-08-25 16:30:01,510][assertUtil.py 100][INFO]: 断言成功:返回的结果中包含success
+[2022-08-25 16:30:01,510][assertUtil.py 41][INFO]: 断言成功:全部断言通过
+[2022-08-25 16:30:01,510][assertUtil.py 42][INFO]: 用例执行:成功
+[2022-08-25 17:38:23,448][browserUtli.py 46][INFO]: 谷歌浏览器启动成功
+[2022-08-25 17:38:34,915][driverUtil.py 55][ERROR]: 显性等待:超时,('id', 'ww')元素没找到
+[2022-08-25 17:40:14,584][browserUtli.py 46][INFO]: 谷歌浏览器启动成功
+[2022-08-25 17:41:37,001][browserUtli.py 46][INFO]: 谷歌浏览器启动成功
+[2022-08-25 17:41:48,557][driverUtil.py 56][ERROR]: 显性等待:超时,('id', 'ww')元素没找到

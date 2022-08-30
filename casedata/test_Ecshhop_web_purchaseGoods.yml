@@ -1,0 +1,6 @@
+-
+  name: 购买商品
+  username: wjy
+  password: 123456
+  validate:
+    - contains: 订单已提交成功

@@ -21,6 +21,7 @@
     headers	请求携带的headers
     cookies	请求携带的cookies
     files	上传文件时使用
+
     auth	身份认证时使用
     timeout	设置请求的超时时间，可以设置连接超时和读取超时
     proxies	设置请求的代理，支持http代理以及socks代理（需要安装第三方库"pip install requests[socks]"）

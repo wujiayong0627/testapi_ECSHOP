@@ -357,22 +357,52 @@
     assert "division by zero" in str(excinfo.value)
 
 ### 五、pytest-rerunfailures（失败用例重跑插件）
+    命令行参数：--reruns n（重新运行次数），--reruns-delay m（等待运行秒数）
+    装饰器参数：reruns=n（重新运行次数），reruns_delay=m（等待运行秒数）
+#### 1、全局失败用例重跑
+&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 重新运行所有测试失败的用例，使用 --reruns 命令行选项，并指定要运行测试的最大次数，并且运行失败的 fixture 或 setup_class 也将重新执行：
+    
+    pytest --reruns 5 -s 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 两次重试之间增加延迟时间，使用 --reruns-delay 命令行选项，指定下次测试重新开始之前等待的秒数：
 
-[//]: # ()
-[//]: # (# 四、接口自动化测试框架封装&#40;接口关联的封装&#41;)
+    pytest --reruns 5 --reruns-delay 10 -s
+#### 2、局部失败用例重跑
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 运行指定的测试用例，要将单个测试用例添加flaky装饰器 @pytest.mark.flaky(reruns=5) ，并在测试失败时自动重新运行，需要指定最大重新运行的次数：
 
-[//]: # (#  一般情况下，通过一个关联的yaml文件来实现&#40;yaml_util.py&#41;)
+    @pytest.mark.flaky(reruns=5，reruns_delay=2)
+    reruns：次数
+    reruns_delay：等待时间
+#### 3、注意事项
+    1、如果定了用例的重新运行次数，则在命令行添加--reruns 对这些用例是不会生效。 
+    2、不可以和fixture装饰器一起使用： @pytest.fixture() 
+    3、该插件与pytest-xdist的 --looponfail 标志不兼容
+    4、该插件与核心--pdb标志不兼容
 
-[//]: # ()
-[//]: # (# 五、pytest接口测试的断言)
+### 六、pytest-html（生成html报告）
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 当前目录下创建一个report.html的测试报告:
+    
+    --html=report.html (--self-contained-html)
 
-[//]: # (# assert关键字)
+### 七、pytest-repeat（重复执行用例）
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 可以针对单个用例，或者针对某个模块的用例重复执行多次.
+#### 1、全局用例重复执行（在命令行或者pytest.ini）    
+    --count=2 / --count 2
+#### 2 、局部用例重复执行（装饰器）
+##### 1.使用装饰器repeat
+    @pytest.mark.repeat(5)
+##### 2.命令行指定作用域（--repeat-scope = 作用域）
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可以覆盖默认的测试用例执行顺序，类似fixture的scope参数。
+    
+    1、function：默认，范围针对每个用例重复执行，再执行下一个用例
+    2、class：   以class为用例集合单位，重复执行class里面的用例，再执行下一个
+    3、module：  以模块为单位，重复执行模块里面的用例，再执行下一个
+    4、session： 重复整个测试会话，即所有测试用例的执行一次，然后再执行第二次
+#### 3、重点:重复测试直到失败（结合-x命令使用）
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在验证偶现问题，可以一次又一次地运行相同的测试直到失败，可以将pytest的 -x 选项与pytest-repeat结合使用，以强制测试运行程序在第一次失败时停止.
 
-[//]: # ()
-[//]: # (# 六、pytest结合allur-pytest生成allure测试报告)
+    -count=1000 -x
+#### 4、注意事项
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pytest-repeat不能与unittest.TestCase测试类一起使用。无论--count设置多少，这些测试始终仅运行一次，并显示警告。
 
-[//]: # (# 1、生成临时的json文件报告（直接在pytest.ini 中添加参数 --alluredir ./temp）)
+### 八、pytest-assume（多重校验插件）
 
-[//]: # (# 2、通过临时的json文件生成allure报告（os.system&#40;allure generate temp -o temp/reports --clean&#41;）)
-
-[//]: # (# 3、allure报告的定制)
